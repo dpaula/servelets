@@ -23,13 +23,13 @@ public class Login extends HttpServlet {
 		Usuario usuario = new UsuarioDAO().buscaPorEmailESenha(login, senha);
 
 		PrintWriter writer = resp.getWriter();
-		writer.println("<http><body>");
+		writer.println("<html><body>");
 		if (usuario == null) {
 			writer.println("Usuário inválido!");
 		} else {
 			writer.println("Usuário logado: " + usuario.getEmail());
 		}
-		writer.println("</http></body>");
+		writer.println("</body></html>");
 	}
 
 }

@@ -18,6 +18,13 @@ public class FiltroDeAuditoria implements Filter {
 	public void destroy() {
 	}
 
+	// O conceito de filtro é amplamente utilizado em aplicações web como uma
+	// maneira de
+	// adicionar características a parte da aplicação. Usando a API de servlets
+	// basta
+	// criar uma classe que implementa Filter e anotá-la com WebFilter.
+	// Em outras APIs é comum encontrar o nome de Interceptor ao invés de Filter
+	// para o mesmo conceito.
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {

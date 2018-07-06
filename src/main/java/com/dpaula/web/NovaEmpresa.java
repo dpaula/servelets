@@ -16,7 +16,7 @@ import br.com.dpaula.dao.EmpresaDAO;
 public class NovaEmpresa extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// http://localhost:8080/servlets/novaEmpresa?nome=Philips
 

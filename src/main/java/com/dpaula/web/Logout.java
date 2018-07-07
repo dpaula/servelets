@@ -3,6 +3,7 @@ package com.dpaula.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,8 +28,11 @@ public class Logout extends HttpServlet {
 
 		req.getSession().removeAttribute("usuario.logado");
 
-		// 302 redirecionando no lado cliente (não indicado)
-		resp.sendRedirect("logout.html");
+		// criando um redirecionamento interno no servidor com dispatcher
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logout.html");
+
+		// executando o redirecionamento criado no servidor
+		requestDispatcher.forward(req, resp);
 
 		// writer.println("<html><body>Usuário: " + usuario.getEmail() + " Deslogado com
 		// sucesso!</body></html>");

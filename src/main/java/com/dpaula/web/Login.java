@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,8 @@ public class Login extends HttpServlet {
 		if (usuario == null) {
 			writer.println("Usuário inválido!");
 		} else {
+			Cookie cookie = new Cookie("usuario.logado", usuario.getEmail());
+			resp.addCookie(cookie);
 			writer.println("Usuário logado: " + usuario.getEmail());
 		}
 		writer.println("</body></html>");

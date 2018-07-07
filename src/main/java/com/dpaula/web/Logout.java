@@ -27,6 +27,7 @@ public class Logout extends HttpServlet {
 
 		req.getSession().removeAttribute("usuario.logado");
 
+		// 302 redirecionando no lado cliente (não indicado)
 		resp.sendRedirect("logout.html");
 
 		// writer.println("<html><body>Usuário: " + usuario.getEmail() + " Deslogado com

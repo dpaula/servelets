@@ -5,10 +5,10 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.dpaula.Usuario;
 import br.com.dpaula.dao.UsuarioDAO;
@@ -28,9 +28,9 @@ public class Login extends HttpServlet {
 		if (usuario == null) {
 			writer.println("Usuário inválido!");
 		} else {
-			Cookie cookie = new Cookie("usuario.logado", usuario.getEmail());
-			cookie.setMaxAge(60);
-			resp.addCookie(cookie);
+
+			HttpSession session = req.getSession();
+			session.setAttribute("usuario.logado", usuario);
 
 			writer.println("Usuário logado: " + usuario.getEmail());
 		}

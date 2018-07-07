@@ -27,7 +27,10 @@ public class Logout extends HttpServlet {
 
 		req.getSession().removeAttribute("usuario.logado");
 
-		writer.println("<html><body>Usuário: " + usuario.getEmail() + " Deslogado com sucesso!</body></html>");
+		resp.sendRedirect("logout.html");
+
+		// writer.println("<html><body>Usuário: " + usuario.getEmail() + " Deslogado com
+		// sucesso!</body></html>");
 	}
 
 }

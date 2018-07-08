@@ -48,7 +48,7 @@ public class FiltroDeAuditoria implements Filter {
 	 * @return
 	 */
 	private String getUsuarioLogado(HttpServletRequest req) {
-		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario.logado");
+		Usuario usuario = (Usuario) req.getSession().getAttribute("usuarioLogado");
 
 		return usuario == null ? "<deslogado>" : usuario.getEmail();
 

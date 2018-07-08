@@ -18,7 +18,7 @@ public class Logout extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario.logado");
+		Usuario usuario = (Usuario) req.getSession().getAttribute("usuarioLogado");
 
 		PrintWriter writer = resp.getWriter();
 		if (usuario == null) {
@@ -26,7 +26,7 @@ public class Logout extends HttpServlet {
 			return;
 		}
 
-		req.getSession().removeAttribute("usuario.logado");
+		req.getSession().removeAttribute("usuarioLogado");
 
 		// criando um redirecionamento interno no servidor com dispatcher
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logout.html");

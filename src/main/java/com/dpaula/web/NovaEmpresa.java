@@ -1,8 +1,8 @@
 package com.dpaula.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +25,15 @@ public class NovaEmpresa extends HttpServlet {
 
 		new EmpresaDAO().adiciona(empresa);
 
-		PrintWriter writer = resp.getWriter();
-		writer.println("<html><body>Empresa " + empresa.getNome() + " cadastrada com sucesso!</body></html>");
+		req.setAttribute("empresa", empresa);
+
+		// criando o redirecionamento interno no servidor
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/paginas/novaEmpresa.jsp");
+		requestDispatcher.forward(req, resp);
+
+		// PrintWriter writer = resp.getWriter();
+		// writer.println("<html><body>Empresa " + empresa.getNome() + " cadastrada com
+		// sucesso!</body></html>");
 	}
 
 }
